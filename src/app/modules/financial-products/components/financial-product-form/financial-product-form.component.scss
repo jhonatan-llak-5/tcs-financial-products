@@ -26,6 +26,13 @@ h2 {
     text-align: left;
 }
 
+@media screen and (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+}
+
 .button-group {
     margin-top: 40px;
     display: flex;

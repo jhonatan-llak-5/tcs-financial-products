@@ -25,6 +25,7 @@ import { AlertService } from '../../../../../_core/services/alert.service';
 })
 export class FinancialProductFormComponent implements OnInit {
 
+  title: string = "Formulario de registro";
   form!: FormGroup;
   today: string = getCurrentDate();
   currentId: string | null = null;
@@ -62,7 +63,11 @@ export class FinancialProductFormComponent implements OnInit {
       next: (response) => {
         if (response) {
           this.form.patchValue(response);
+          this.title = "Editar producto financiero";
         }
+      },
+      error: (error) => {
+        this._router.navigate(['/financial-products']);
       }
     });
   }

@@ -19,7 +19,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let row of paginatedData">
-                <td *ngFor="let column of columns">
+                <td class="column-data" *ngFor="let column of columns">
                     <ng-container *ngIf="column.type === 'text'">
                         {{ row[column.field] }}
                     </ng-container>
