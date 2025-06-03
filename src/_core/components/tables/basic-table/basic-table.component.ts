@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITableColumns } from '../../../interfaces/table.interface,';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputSearchComponent } from "../../forms/input-search/input-search.component";
+import { ButtonComponent } from "../../forms/button/button.component";
 
 @Component({
   selector: 'app-basic-table',
@@ -10,7 +11,8 @@ import { InputSearchComponent } from "../../forms/input-search/input-search.comp
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    InputSearchComponent
+    InputSearchComponent,
+    ButtonComponent
 ],
   templateUrl: './basic-table.component.html',
   styleUrl: './basic-table.component.scss'

@@ -1,1 +1,21 @@
-<p>input-text works!</p>
+<div [formGroup]="group" class="form-group">
+    <label>{{ label }}</label>
+    <input [type]="inputType" [placeholder]="placeholder" [formControlName]="control"
+        [ngClass]="{ 'required': isRequired(), 'invalid': showRequiredError() || showPatternError() || showMinLengthError() || showMaxLengthError() }" />
+
+    <small *ngIf="showRequiredError()" class="error">
+        ¡Este campo es requerido!
+    </small>
+
+    <small *ngIf="showPatternError()" class="error">
+        {{ label }} no válido!
+    </small>
+
+    <small *ngIf="showMinLengthError()" class="error">
+        {{ label }} debe tener al menos {{ minLength }} caracteres.
+    </small>
+
+    <small *ngIf="showMaxLengthError()" class="error">
+        {{ label }} no puede tener más de {{ maxLength }} caracteres.
+    </small>
+</div>

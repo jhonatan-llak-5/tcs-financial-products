@@ -1,0 +1,15 @@
+<div [formGroup]="group" class="form-group">
+  <label>{{ label }}</label>
+  <input
+    type="date"
+    [min]="minDate"
+    [max]="maxDate"
+    [placeholder]="placeholder"
+    [formControlName]="control"
+    [ngClass]="{ 'required': isRequired(), 'invalid': showRequiredError() }"
+  />
+
+  <small *ngIf="showRequiredError()" class="error">
+    ¡Este campo es requerido!
+  </small>
+</div>

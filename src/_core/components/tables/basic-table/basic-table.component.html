@@ -1,8 +1,6 @@
 <div class="search-container">
-    <app-input-search
-        [placeholder]="'Buscar...'"
-        [searchValue]="searchValue" />
-    <button *ngIf="showAddButton" (click)="addRow()" class="btn-primary">Agregar</button>
+    <app-input-search [placeholder]="'Buscar...'" [searchValue]="searchValue" />
+    <app-button (click)="addRow()">Agregar</app-button>
 </div>
 
 <div class="my-2"></div>
@@ -41,9 +39,9 @@
 
                 <td *ngIf="showActions" class="action-cell">
                     <div class="dropdown">
-                        <button class="action-btn" (click)="toggleDropdown($event)">
+                        <app-button extraClasses="action-btn" (click)="toggleDropdown($event)">
                             <i class="fas fa-ellipsis-v"></i>
-                        </button>
+                        </app-button>
                         <ul class="dropdown-menu">
                             <li (click)="editRow(row)">Editar</li>
                             <li (click)="deleteRow(row)">Eliminar</li>
@@ -56,13 +54,13 @@
     <div class="pagination">
         <span>{{ dataLength }} Resultados</span>
         <div>
-            <button (click)="previousPage()" [disabled]="currentPage === 1">
+            <app-button extraClasses="p-2 btn-dark" [disabled]="currentPage === 1" (click)="previousPage()">
                 <i class="fas fa-chevron-left"></i>
-            </button>
+            </app-button>
             <span class="current-page">{{ currentPage }}</span>
-            <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+            <app-button extraClasses="p-2 btn-dark" [disabled]="currentPage === totalPages" (click)="nextPage()">
                 <i class="fas fa-chevron-right"></i>
-            </button>
+            </app-button>
 
             <select [(ngModel)]="defaultSize" (change)="changeSizeData()" class="select">
                 <option *ngFor="let item of sizeData">{{ item }}</option>

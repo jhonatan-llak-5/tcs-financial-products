@@ -3,12 +3,14 @@ import { BasicTableComponent } from "../../../../../_core/components/tables/basi
 import { ITableColumns } from '../../../../../_core/interfaces/table.interface,';
 import { table } from '../../config/table';
 import { Router } from '@angular/router';
+import { BaseModalComponent } from "../../../../../_core/components/modals/base-modal/base-modal.component";
 
 @Component({
   selector: 'app-financial-products-list',
   imports: [
-    BasicTableComponent
-  ],
+    BasicTableComponent,
+    BaseModalComponent
+],
   templateUrl: './financial-products-list.component.html',
   styleUrl: './financial-products-list.component.scss'
 })

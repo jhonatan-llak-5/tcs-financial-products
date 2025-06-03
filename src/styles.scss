@@ -40,7 +40,8 @@ input[type="text"],
 input[type="number"],
 input[type="email"],
 input[type="password"],
-input[type="search"] {
+input[type="search"],
+input[type="date"] {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -48,12 +49,27 @@ input[type="search"] {
   box-sizing: border-box;
 }
 
+input.invalid {
+    border-color: red;
+}
+
+.error {
+    color: red;
+}
+
 .btn-primary {
   background-color: #F5DF66;
   color: black;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+}
+
+.btn-dark {
+  background-color: #000000;
+  color: white;
+}
+
+.btn-default {
+  background-color: #EAECF2 !important;
+  color: black;
 }
 
 .text-wrap {
