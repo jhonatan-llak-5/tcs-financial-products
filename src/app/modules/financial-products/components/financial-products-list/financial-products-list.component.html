@@ -1,0 +1,9 @@
+<app-basic-table
+    [columns]="columns"
+    [showAddButton]="true"
+    [showActions]="true"
+    [data]="data" 
+    (onDelete)="deleteRow($event)"
+    (onEdit)="editRow($event)"
+    (onAdd)="addRow()"
+/>

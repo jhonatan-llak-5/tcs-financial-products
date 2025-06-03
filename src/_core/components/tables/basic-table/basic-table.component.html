@@ -1,0 +1,72 @@
+<div class="search-container">
+    <app-input-search
+        [placeholder]="'Buscar...'"
+        [searchValue]="searchValue" />
+    <button *ngIf="showAddButton" (click)="addRow()" class="btn-primary">Agregar</button>
+</div>
+
+<div class="my-2"></div>
+
+<div class="table-container">
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th class="text-wrap" *ngFor="let column of columns">
+                    {{ column.name }}
+                    <span *ngIf="column.hasInfo" [title]="column.infoText"><i
+                            class="fas fa-info-circle custom-icon"></i></span>
+                </th>
+                <th *ngIf="showActions"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of paginatedData">
+                <td *ngFor="let column of columns">
+                    <ng-container *ngIf="column.type === 'text'">
+                        {{ row[column.field] }}
+                    </ng-container>
+                    <ng-container *ngIf="column.type === 'date'">
+                        {{ row[column.field] | date: 'dd/MM/yyyy' }}
+                    </ng-container>
+                    <ng-container *ngIf="column.type === 'number'">
+                        {{ row[column.field] | number }}
+                    </ng-container>
+                    <ng-container *ngIf="column.type === 'boolean'">
+                        {{ row[column.field] ? 'Sí' : 'No' }}
+                    </ng-container>
+                    <ng-container *ngIf="column.type === 'image'">
+                        <img [src]="row[column.field]" alt="Imagen" class="image-cell">
+                    </ng-container>
+                </td>
+
+                <td *ngIf="showActions" class="action-cell">
+                    <div class="dropdown">
+                        <button class="action-btn" (click)="toggleDropdown($event)">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li (click)="editRow(row)">Editar</li>
+                            <li (click)="deleteRow(row)">Eliminar</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <span>{{ dataLength }} Resultados</span>
+        <div>
+            <button (click)="previousPage()" [disabled]="currentPage === 1">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <span class="current-page">{{ currentPage }}</span>
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <select [(ngModel)]="defaultSize" (change)="changeSizeData()" class="select">
+                <option *ngFor="let item of sizeData">{{ item }}</option>
+            </select>
+        </div>
+    </div>
+</div>

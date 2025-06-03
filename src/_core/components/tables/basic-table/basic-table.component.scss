@@ -1,0 +1,107 @@
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.table-container {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+}
+
+thead th {
+    background: #F9FAFC;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+tbody td {
+    padding: 12px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    background: #ccc;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-cell {
+    height: 40px;
+}
+
+.current-page {
+    font-weight: bold;
+    color: #333;
+    margin: 4px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  min-width: 120px;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.dropdown-menu li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown.show .dropdown-menu {
+  display: block;
+}
+
+.my-2 {
+    margin: 1rem;
+}
+
+.search-container {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
