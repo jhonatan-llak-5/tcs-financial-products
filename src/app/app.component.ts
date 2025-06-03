@@ -12,7 +12,6 @@ import { Subscription } from 'rxjs';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
-
   showSuccessAlert = false;
   alertMessage = '';
   subscription = new Subscription();
@@ -24,7 +23,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const alertSubs = this._alertSvc.handleShowSuccessAlert().subscribe({
       next: (value) => {
-        console.log(value)
         this.showSuccessAlert = value;
         this.alertMessage = this._alertSvc.getAlertMessage();
       }

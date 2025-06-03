@@ -1,7 +1,7 @@
 <div [formGroup]="group" class="form-group">
     <label>{{ label }}</label>
-    <input [type]="inputType" [placeholder]="placeholder" [formControlName]="control"
-        [ngClass]="{ 'required': isRequired(), 'invalid': showRequiredError() || showPatternError() || showMinLengthError() || showMaxLengthError() }" />
+    <input [name]="control" [type]="inputType" [placeholder]="placeholder" [formControlName]="control"
+        [ngClass]="{ 'invalid': showRequiredError() || showPatternError() || showMinLengthError() || showMaxLengthError() }" />
 
     <small *ngIf="showRequiredError()" class="error">
         ¡Este campo es requerido! <br>

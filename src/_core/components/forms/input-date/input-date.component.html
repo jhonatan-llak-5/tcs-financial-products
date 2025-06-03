@@ -2,11 +2,12 @@
   <label>{{ label }}</label>
   <input
     type="date"
+    [name]="control"
     [min]="minDate"
     [max]="maxDate"
     [placeholder]="placeholder"
     [formControlName]="control"
-    [ngClass]="{ 'required': isRequired(), 'invalid': showRequiredError() }"
+    [ngClass]="{ 'invalid': showRequiredError() }"
   />
 
   <small *ngIf="showRequiredError()" class="error">

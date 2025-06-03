@@ -1,16 +1,16 @@
 export interface IFinancialProduct {
-    id: number
+    id: string
     logo: string
     name: string
     description: string
-    date_release: Date
-    date_revision: Date
+    date_release: Date | string
+    date_revision: Date | string
 }
 
 export interface IFinancialProductRequest {
     logo: string
     name: string
     description: string
-    date_release: string
-    date_revision: string
+    date_release: Date
+    date_revision: Date
 }

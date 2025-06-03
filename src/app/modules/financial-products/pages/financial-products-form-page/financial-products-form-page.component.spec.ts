@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FinancialProductsFormPageComponent } from './financial-products-form-page.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('FinancialProductsFormPageComponent', () => {
   let component: FinancialProductsFormPageComponent;
@@ -8,7 +11,20 @@ describe('FinancialProductsFormPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FinancialProductsFormPageComponent]
+      imports: [FinancialProductsFormPageComponent, HttpClientTestingModule],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({}),
+            snapshot: {
+              paramMap: {
+                get: (key: string) => null
+              }
+            }
+          }
+        }
+      ]
     })
     .compileComponents();
 

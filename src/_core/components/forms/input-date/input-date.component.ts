@@ -13,7 +13,7 @@ import { AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModu
   styleUrl: './input-date.component.scss'
 })
 export class InputDateComponent {
-  @Input() group!: FormGroup;
+  @Input() group: FormGroup = new FormGroup({});
   @Input() control!: string;
   @Input() minDate: string = '';
   @Input() maxDate: string = '';
@@ -25,13 +25,8 @@ export class InputDateComponent {
     return this.group.get(this.control)!;
   }
 
-  isRequired(): boolean {
-    const validator = this.formControl.validator?.({} as any);
-    return !!validator?.['required'];
-  }
-
   showRequiredError(): boolean {
-    return this.formControl.hasError('required') &&
+    return this.formControl?.hasError('required') &&
            (this.formControl.dirty || this.formControl.touched);
   }
 }

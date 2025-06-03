@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InputTextComponent } from './input-text.component';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 describe('InputTextComponent', () => {
   let component: InputTextComponent;
@@ -14,6 +15,10 @@ describe('InputTextComponent', () => {
 
     fixture = TestBed.createComponent(InputTextComponent);
     component = fixture.componentInstance;
+    component.control = 'name';
+    component.group = new FormGroup({
+      name: new FormControl('', Validators.required)
+    });
     fixture.detectChanges();
   });
 
