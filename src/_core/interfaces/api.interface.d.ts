@@ -1,21 +1,10 @@
 export interface IApiResponse<T> {
     data: T;
-    message: string;
-    status: string;
-    total_data?: number;
+    message?: string;
 }
 
-export interface IHttpError {
-    error: IApiErrorResponse;
+export interface IApiError {
     message: string;
     name: string;
-    status: number;
-    statusText: string;
-    url: string;
-}
-
-export interface IApiErrorResponse {
-    data: null;
-    message: string;
-    status: string
+    stack: string;
 }

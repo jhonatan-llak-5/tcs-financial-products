@@ -42,6 +42,11 @@ export class InputTextComponent{
       (this.formControl.dirty || this.formControl.touched);
   }
 
+  showIdExists(): boolean {
+    return this.formControl.hasError('idExists') &&
+      (this.formControl.dirty || this.formControl.touched);
+  }
+
   showMinLengthError(): boolean {
     this.minLength = this.formControl.getError('minlength')?.requiredLength || 0;
     return this.formControl.hasError('minlength') &&

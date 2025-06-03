@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ITableColumns } from '../../../interfaces/table.interface,';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputSearchComponent } from "../../forms/input-search/input-search.component";
 import { ButtonComponent } from "../../forms/button/button.component";
+import { SkeletonTableComponent } from "../../skeleton/skeleton-table/skeleton-table.component";
 
 @Component({
   selector: 'app-basic-table',
@@ -12,14 +13,16 @@ import { ButtonComponent } from "../../forms/button/button.component";
     FormsModule,
     ReactiveFormsModule,
     InputSearchComponent,
-    ButtonComponent
+    ButtonComponent,
+    SkeletonTableComponent
 ],
   templateUrl: './basic-table.component.html',
   styleUrl: './basic-table.component.scss'
 })
-export class BasicTableComponent implements OnInit {
+export class BasicTableComponent implements OnInit, OnChanges {
   @Input() columns: ITableColumns[] = [];
   @Input() data: any[] = [];
+  @Input() loadingData: boolean = false;
   @Input() showActions: boolean = false;
   @Input() showAddButton: boolean = false;
   @Output() onEdit: EventEmitter<any> = new EventEmitter();
@@ -38,13 +41,23 @@ export class BasicTableComponent implements OnInit {
   paginatedData: any[] = [];
 
   ngOnInit(): void {
-    this.filteredData = [...this.data];
-    this.dataLength = this.filteredData.length;
-    this.updatePagination();
+    this.loadData();
 
     this.searchValue.valueChanges.subscribe((value: string) => {
       this.filterData(value);
     });
+  }
+
+  loadData() {
+    this.filteredData = [...this.data];
+    this.dataLength = this.filteredData.length;
+    this.updatePagination();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['data'] && changes['data'].currentValue) {
+      this.loadData();
+    }
   }
 
   filterData(value: string) {

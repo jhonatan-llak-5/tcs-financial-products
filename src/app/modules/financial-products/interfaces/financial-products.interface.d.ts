@@ -3,6 +3,14 @@ export interface IFinancialProduct {
     logo: string
     name: string
     description: string
-    liberationDate: string
-    restructuringDate: string
+    date_release: Date
+    date_revision: Date
+}
+
+export interface IFinancialProductRequest {
+    logo: string
+    name: string
+    description: string
+    date_release: string
+    date_revision: string
 }

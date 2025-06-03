@@ -15,6 +15,10 @@
         {{ label }} debe tener al menos {{ minLength }} caracteres. <br>
     </small>
 
+    <small *ngIf="showIdExists()" class="error">
+        {{ label }} ya existe! <br>
+    </small>
+
     <small *ngIf="showMaxLengthError()" class="error">
         {{ label }} no puede tener más de {{ maxLength }} caracteres. <br>
     </small>

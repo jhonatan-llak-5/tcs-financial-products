@@ -9,53 +9,52 @@ import { environment } from '../environments/environment';
 })
 export abstract class ApiService<TEntity, TResponse> {
 
-public baseUrl: string = '';
+  public baseUrl: string = '';
   public _httpSvc = inject(HttpClient);
 
   constructor() { }
 
   getAllAsync(queryParams?: any): Observable<IApiResponse<TResponse[]>> {
     const url = this.handleUrl()
-    return this._httpSvc.get<IApiResponse<TResponse[]>>(`${url}/`, { params: queryParams });
+    return this._httpSvc.get<IApiResponse<TResponse[]>>(`${url}`, { params: queryParams });
   }
 
-  getById(id: number): Observable<IApiResponse<TResponse>>{
+  getById(id: number | string): Observable<TResponse> {
     const url = this.handleUrl()
-    return this._httpSvc.get<IApiResponse<TResponse>>(`${url}/${id}/`);
+    return this._httpSvc.get<TResponse>(`${url}/${id}`);
   }
 
-  deleteAsync(id: number): Observable<string>{
+  deleteAsync(id: number | string): Observable<IApiResponse<TResponse>> {
     const url = this.handleUrl()
-    return this._httpSvc.delete<string>(`${url}/${id}/`);
+    return this._httpSvc.delete<IApiResponse<TResponse>>(`${url}/${id}`);
   }
 
-  saveAsync(data: TEntity | FormData): Observable<IApiResponse<TResponse>>{
+  saveAsync(data: TEntity | FormData): Observable<IApiResponse<TResponse>> {
     const url = this.handleUrl()
     return this._httpSvc.post<IApiResponse<TResponse>>(
-      `${url}/`,
+      `${url}`,
       data
     );
   }
 
-  updateAsync( id: number, data: TEntity | FormData ): Observable<IApiResponse<TResponse>> {
+  updateAsync(id: number | string, data: TEntity | FormData): Observable<IApiResponse<TResponse>> {
     const url = this.handleUrl()
     return this._httpSvc.put<IApiResponse<TResponse>>(
-      `${url}/${id}/`,
+      `${url}/${id}`,
       data
     );
   }
 
-  updateWithoutIdAsync( data: TEntity ): Observable<IApiResponse<TResponse>> {
+  updateWithoutIdAsync(data: TEntity): Observable<IApiResponse<TResponse>> {
     const url = this.handleUrl()
-    console.log(data);
     return this._httpSvc.put<IApiResponse<TResponse>>(
-      `${url}/`,
+      `${url}`,
       data
     );
   }
 
-    handleUrl() {
-      const apiUrl: string = environment.production ? environment.apiUrl: environment.apiDevUrl;
-      return `${apiUrl}/${this.baseUrl}`
-    }
+  handleUrl() {
+    const apiUrl: string = environment.production ? environment.apiUrl : environment.apiDevUrl;
+    return `${apiUrl}/${this.baseUrl}`
+  }
 }

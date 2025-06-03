@@ -5,7 +5,7 @@
 
 <div class="my-2"></div>
 
-<div class="table-container">
+<div *ngIf="!loadingData" class="table-container">
     <table class="responsive-table">
         <thead>
             <tr>
@@ -67,4 +67,8 @@
             </select>
         </div>
     </div>
+</div>
+
+<div *ngIf="loadingData">
+    <app-skeleton-table></app-skeleton-table>
 </div>
