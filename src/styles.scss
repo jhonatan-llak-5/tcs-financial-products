@@ -3,22 +3,31 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+  --primary-color: #F5DF66;
+  --secondary-color: #EAECF2;
+  --dark-color: #000000;
+  --icon-color: #484848;
+  --page-color: #F4F7FB;
+  --form-component-color: #ccc;
+  --light-color: #FFFFFF;
+  --error-color: #FF0000;
 }
 
 body {
     font-family: Arial, sans-serif !important;
-    background-color: #f4f7fb;
+    background-color: var(--page-color);
     padding: 40px;
 }
 
 .custom-icon {
-  color: #484848
+  color: var(--icon-color);
 }
 
 .select {
     margin-left: 10px;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--form-component-color);
     border-radius: 4px;
 }
 
@@ -26,13 +35,13 @@ button {
   padding: 8px 12px;
   border: none;
   border-radius: 4px;
-  background-color: #000000;
-  color: white;
+  background-color: var(--dark-color);
+  color: var(--light-color);
   cursor: pointer;
 }
 
 button:disabled {
-  background-color: #ccc;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
@@ -43,35 +52,39 @@ input[type="password"],
 input[type="search"],
 input[type="date"] {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--form-component-color);
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
 }
 
 input.invalid {
-    border-color: red;
+    border-color: var(--error-color);
 }
 
 .error {
-    color: red;
+    color: var(--error-color);
 }
 
 .btn-primary {
-  background-color: #F5DF66;
-  color: black;
+  background-color: var(--primary-color);
+  color: var(--dark-color);
 }
 
 .btn-dark {
-  background-color: #000000;
-  color: white;
+  background-color: var(--dark-color);
+  color: var(--light-color);
 }
 
 .btn-default {
-  background-color: #EAECF2 !important;
-  color: black;
+  background-color: var(--secondary-color) !important;
+  color: var(--dark-color);
 }
 
 .text-wrap {
   text-wrap: nowrap;
+}
+
+.w-90 {
+    width: 90% !important;
 }

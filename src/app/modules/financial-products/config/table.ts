@@ -1,6 +1,7 @@
 import { ITableColumns, ITableConfig } from "../../../../_core/interfaces/table.interface,";
+import { IFinancialProduct } from "../interfaces/financial-products.interface";
 
-export const table: ITableConfig = {
+export const table: ITableConfig<IFinancialProduct> = {
     columns: [
         {
             field: 'logo',
@@ -156,6 +157,7 @@ export const table: ITableConfig = {
             restructuringDate: '2019-09-30',
         },
         {
+            id: 1,
             logo: 'https://placehold.co/600x400',
             name: 'Cuenta Global',
             description: 'Cuenta en múltiples divisas para viajeros frecuentes.',

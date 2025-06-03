@@ -1,46 +1,31 @@
 <div class="form-container">
-    <h2>Formulario de Registro</h2>
-    <form [formGroup]="form" novalidate (submit)="onSubmit()">
-        <div class="form-grid">
-            <app-input-text
-                label="ID"
-                [group]="form"
-                control="id" />
+    <div class="form-header">
+        <h2>Formulario de Registro</h2>
+    </div>
+    <div class="form-body">
+        <form [formGroup]="form" novalidate (submit)="onSubmit()">
+            <div class="form-grid">
+                <app-input-text label="ID" [group]="form" control="id" />
 
-            <app-input-text
-                label="Nombre"
-                [group]="form"
-                control="name" />
+                <app-input-text label="Nombre" [group]="form" control="name" />
 
-            <app-input-text
-                label="Descripción"	
-                [group]="form"
-                control="description" />
+                <app-input-text label="Descripción" [group]="form" control="description" />
 
-            <app-input-text
-                label="Logo"
-                [group]="form"
-                control="logo" />
+                <app-input-text label="Logo" [group]="form" control="logo" />
 
-            <app-input-date
-                label="Fecha Liberación"
-                [group]="form"
-                [minDate]="today"
-                control="date_release" />
+                <app-input-date label="Fecha Liberación" [group]="form" [minDate]="today" control="date_release" />
 
-            <small *ngIf="form.get('date_release')?.hasError('invalidDateRelease')" class="text-danger">
-                La Fecha debe ser igual o mayor a la fecha actual.
-            </small>
+                <small *ngIf="form.get('date_release')?.hasError('invalidDateRelease')" class="text-danger">
+                    La Fecha debe ser igual o mayor a la fecha actual.
+                </small>
 
-            <app-input-date
-                label="Fecha Revisión"
-                [group]="form"
-                control="date_revision" />
-        </div>
+                <app-input-date label="Fecha Revisión" [group]="form" control="date_revision" />
+            </div>
 
-        <div class="button-group">
-            <app-button type="reset" extraClasses="btn-default">Reiniciar</app-button>
-            <app-button type="submit">Enviar</app-button>
-        </div>
-    </form>
+            <div class="button-group">
+                <app-button type="reset" extraClasses="btn-default">Reiniciar</app-button>
+                <app-button [disabled]="form.invalid" type="submit">Enviar</app-button>
+            </div>
+        </form>
+    </div>
 </div>

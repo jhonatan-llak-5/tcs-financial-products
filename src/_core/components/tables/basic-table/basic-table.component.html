@@ -39,7 +39,7 @@
 
                 <td *ngIf="showActions" class="action-cell">
                     <div class="dropdown">
-                        <app-button extraClasses="action-btn" (click)="toggleDropdown($event)">
+                        <app-button extraClasses="btn-default" (click)="toggleDropdown($event)">
                             <i class="fas fa-ellipsis-v"></i>
                         </app-button>
                         <ul class="dropdown-menu">
@@ -54,11 +54,11 @@
     <div class="pagination">
         <span>{{ dataLength }} Resultados</span>
         <div>
-            <app-button extraClasses="p-2 btn-dark" [disabled]="currentPage === 1" (click)="previousPage()">
+            <app-button extraClasses="p-2 btn-default" [disabled]="currentPage === 1" (click)="previousPage()">
                 <i class="fas fa-chevron-left"></i>
             </app-button>
             <span class="current-page">{{ currentPage }}</span>
-            <app-button extraClasses="p-2 btn-dark" [disabled]="currentPage === totalPages" (click)="nextPage()">
+            <app-button extraClasses="p-2 btn-default" [disabled]="currentPage === totalPages" (click)="nextPage()">
                 <i class="fas fa-chevron-right"></i>
             </app-button>
 

@@ -1,11 +1,12 @@
-<div class="overlay">
+<div *ngIf="showModal" class="overlay">
     <div class="modal">
-        <p class="modal-text">
-            ¿Estas seguro de eliminar el producto <strong>titulo</strong>
-        </p>
+        <div class="modal-body">
+            <ng-content></ng-content>
+        </div>
+        
         <div class="modal-actions">
-            <app-button extraClasses="btn-dark">Cancelar</app-button>
-            <app-button>Confirmar</app-button>
+            <app-button (click)="cancelAction()" extraClasses="btn-default w-90">Cancelar</app-button>
+            <app-button (click)="confirmAction()" extraClasses="w-90">Confirmar</app-button>
         </div>
     </div>
 </div>

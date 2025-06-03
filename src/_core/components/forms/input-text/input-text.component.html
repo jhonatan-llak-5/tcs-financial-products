@@ -4,18 +4,18 @@
         [ngClass]="{ 'required': isRequired(), 'invalid': showRequiredError() || showPatternError() || showMinLengthError() || showMaxLengthError() }" />
 
     <small *ngIf="showRequiredError()" class="error">
-        ¡Este campo es requerido!
+        ¡Este campo es requerido! <br>
     </small>
 
     <small *ngIf="showPatternError()" class="error">
-        {{ label }} no válido!
+        {{ label }} no válido! <br>
     </small>
 
     <small *ngIf="showMinLengthError()" class="error">
-        {{ label }} debe tener al menos {{ minLength }} caracteres.
+        {{ label }} debe tener al menos {{ minLength }} caracteres. <br>
     </small>
 
     <small *ngIf="showMaxLengthError()" class="error">
-        {{ label }} no puede tener más de {{ maxLength }} caracteres.
+        {{ label }} no puede tener más de {{ maxLength }} caracteres. <br>
     </small>
 </div>

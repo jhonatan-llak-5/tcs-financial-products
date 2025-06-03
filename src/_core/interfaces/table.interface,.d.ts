@@ -6,7 +6,7 @@ export interface ITableColumns {
     type?: 'text' | 'number' | 'date' | 'boolean' | 'currency' | 'image';
 }
 
-export interface ITableConfig {
+export interface ITableConfig<IEntity> {
     columns: ITableColumns[];
-    data: any[];
+    data: IEntity[];
 }

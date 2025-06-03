@@ -60,6 +60,7 @@ export class FinancialProductFormComponent implements OnInit {
     this.form.markAllAsTouched();
     if (this.form.invalid) return
 
+    this.form.get('date_revision')?.enable();
     console.log('Form submitted:', this.form.value);
   }
 

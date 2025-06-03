@@ -8,4 +8,12 @@
     (onAdd)="addRow()"
 />
 
-<app-base-modal></app-base-modal>
+<app-base-modal
+    [showModal]="showModal"
+    (onClose)="cancelAction()"
+    (onConfirm)="confirmAction()"
+>
+    <div>
+        ¿Estas seguro de eliminar el producto <strong>{{ selectedRow?.name }}</strong>?
+    </div>
+</app-base-modal>
