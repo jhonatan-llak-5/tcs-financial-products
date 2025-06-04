@@ -63,6 +63,7 @@ export class FinancialProductFormComponent implements OnInit {
       next: (response) => {
         if (response) {
           this.form.patchValue(response);
+          this.form.get('id')?.disable();
           this.title = "Editar producto financiero";
         }
       },
@@ -105,6 +106,12 @@ export class FinancialProductFormComponent implements OnInit {
         this.form.get('date_revision')?.reset();
       }
     });
+  }
+
+  resetForm() {
+    this.form.reset();
+    this.form.get('date_revision')?.disable();
+    this.form.get('id')?.enable();
   }
 
   onSubmit() {

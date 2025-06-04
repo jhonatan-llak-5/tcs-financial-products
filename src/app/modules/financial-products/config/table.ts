@@ -1,4 +1,4 @@
-import { ITableColumns, ITableConfig } from "../../../../_core/interfaces/table.interface,";
+import { ITableConfig } from "../../../../_core/interfaces/table.interface,";
 import { IFinancialProduct } from "../interfaces/financial-products.interface";
 
 export const table: ITableConfig<IFinancialProduct> = {
@@ -7,6 +7,7 @@ export const table: ITableConfig<IFinancialProduct> = {
             field: 'logo',
             name: 'Logo',
             type: 'image',
+            aligment: 'center',
         },
         {
             field: 'name',
@@ -17,21 +18,21 @@ export const table: ITableConfig<IFinancialProduct> = {
             field: 'description',
             name: 'Descripción',
             hasInfo: true,
-            infoText: 'Descripción del producto financiero.',
+            infoText: 'URL de un log representativo para e producto',
             type: 'text',
         },
         {
             field: 'date_release',
             name: 'Fecha de liberación',
             hasInfo: true,
-            infoText: 'Fecha en la que el producto financiero fue liberado.',
+            infoText: 'Fecha a liberar el producto para los clientes en General',
             type: 'date'
         },
         {
             field: 'date_revision',
             name: 'Fecha de reestructuración',
             hasInfo: true,
-            infoText: 'Fecha en la que el producto financiero fue reestructurado.',
+            infoText: 'Fecha de revisión del producto para cambiar Términos y Condiciones',
             type: 'date'
         }
     ],

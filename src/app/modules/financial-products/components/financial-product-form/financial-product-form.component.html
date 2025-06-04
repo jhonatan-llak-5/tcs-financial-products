@@ -24,7 +24,7 @@
             </div>
 
             <div class="button-group">
-                <app-button type="reset" extraClasses="btn-default">Reiniciar</app-button>
+                <app-button type="button" (click)="resetForm()" extraClasses="btn-default">Reiniciar</app-button>
                 <app-button [disabled]="form.invalid" type="submit">Enviar</app-button>
             </div>
         </form>

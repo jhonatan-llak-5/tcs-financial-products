@@ -9,7 +9,7 @@
     <table class="responsive-table">
         <thead>
             <tr>
-                <th class="text-wrap" *ngFor="let column of columns">
+                <th class="text-wrap" [ngClass]="{'text-center': column.aligment === 'center'}" *ngFor="let column of columns">
                     {{ column.name }}
                     <span *ngIf="column.hasInfo" [title]="column.infoText"><i
                             class="fas fa-info-circle custom-icon"></i></span>
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let row of paginatedData">
-                <td class="column-data" *ngFor="let column of columns">
+                <td [ngClass]="{'text-center': column.aligment === 'center'}" class="column-data" *ngFor="let column of columns">
                     <ng-container *ngIf="column.type === 'text'">
                         {{ row[column.field] }}
                     </ng-container>
@@ -39,7 +39,7 @@
 
                 <td *ngIf="showActions" class="action-cell">
                     <div class="dropdown">
-                        <app-button extraClasses="btn-default" (click)="toggleDropdown($event)">
+                        <app-button extraClasses="btn-ellipsis" (click)="toggleDropdown($event)">
                             <i class="fas fa-ellipsis-v"></i>
                         </app-button>
                         <ul class="dropdown-menu">
@@ -51,21 +51,22 @@
             </tr>
         </tbody>
     </table>
-    <div class="pagination">
-        <span>{{ dataLength }} Resultados</span>
-        <div>
-            <app-button extraClasses="p-2 btn-default" [disabled]="currentPage === 1" (click)="previousPage()">
-                <i class="fas fa-chevron-left"></i>
-            </app-button>
-            <span class="current-page">{{ currentPage }}</span>
-            <app-button extraClasses="p-2 btn-default" [disabled]="currentPage === totalPages" (click)="nextPage()">
-                <i class="fas fa-chevron-right"></i>
-            </app-button>
+</div>
 
-            <select [(ngModel)]="defaultSize" (change)="changeSizeData()" class="select">
-                <option *ngFor="let item of sizeData">{{ item }}</option>
-            </select>
-        </div>
+<div class="pagination">
+    <span>{{ dataLength }} Resultados</span>
+    <div>
+        <app-button extraClasses="p-2 btn-default" [disabled]="currentPage === 1" (click)="previousPage()">
+            <i class="fas fa-chevron-left"></i>
+        </app-button>
+        <span class="current-page">{{ currentPage }}</span>
+        <app-button extraClasses="p-2 btn-default" [disabled]="currentPage === totalPages" (click)="nextPage()">
+            <i class="fas fa-chevron-right"></i>
+        </app-button>
+
+        <select [(ngModel)]="defaultSize" (change)="changeSizeData()" class="select">
+            <option *ngFor="let item of sizeData">{{ item }}</option>
+        </select>
     </div>
 </div>
 

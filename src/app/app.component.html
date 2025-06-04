@@ -1,4 +1,10 @@
-<router-outlet />
+<div class="header">
+    <img src="/assets/imgs/bank.png" alt="">
+</div>
+
+<div class="main">
+    <router-outlet />
+</div>
 
 <div *ngIf="showSuccessAlert">
     <app-floating-alert></app-floating-alert>

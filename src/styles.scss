@@ -9,7 +9,7 @@
   --success-color: #d1e7dd;
   --success-text-color: #0f5132;
   --dark-color: #000000;
-  --icon-color: #484848;
+  --icon-color: #929296;
   --page-color: #F4F7FB;
   --form-component-color: #ccc;
   --light-color: #FFFFFF;
@@ -19,6 +19,9 @@
 body {
     font-family: Arial, sans-serif !important;
     background-color: var(--page-color);
+}
+
+.main {
     padding: 40px;
 }
 
@@ -78,6 +81,10 @@ input.invalid {
   color: var(--light-color);
 }
 
+.btn-ellipsis {
+  background-color: var(--light-color) !important;
+}
+
 .btn-default {
   background-color: var(--secondary-color) !important;
   color: var(--dark-color);
@@ -89,4 +96,8 @@ input.invalid {
 
 .w-90 {
     width: 90% !important;
+}
+
+.text-center {
+  text-align: center !important;
 }
